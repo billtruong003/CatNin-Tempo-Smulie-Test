@@ -9,12 +9,30 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = FirstPose.position;
+        ChangePose(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            ChangePose();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            ChangePose(1);
+        }
+    }
+    private void ChangePose(int posNum = 0)
+    {
+        if (posNum == 1)
+        {
+            transform.position = FirstPose.position;
+        }
+        else
+        {
+            transform.position = SecondPose.position;
+        }
     }
 }

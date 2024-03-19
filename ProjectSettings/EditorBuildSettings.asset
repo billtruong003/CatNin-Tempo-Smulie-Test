@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestParticleSystem.unity
     guid: e2add7ffcf1e46648959428a620536da
+  - enabled: 1
+    path: Assets/Scenes/GamePlayScene.unity
+    guid: 1ee074bdb30c79542b190ebfbaf6d945
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 427559243e121284b83fa2b896a8792b
   m_configObjects: {}
