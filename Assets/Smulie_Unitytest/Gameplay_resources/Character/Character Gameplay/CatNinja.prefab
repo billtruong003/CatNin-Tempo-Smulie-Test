@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 1323799802462926340}
   - component: {fileID: 1323799802462926343}
   - component: {fileID: 1894602111005407460}
+  - component: {fileID: 7652616197112150034}
   m_Layer: 0
   m_Name: CatNinja
   m_TagString: Untagged
@@ -242,6 +243,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ff0e2b5fbdc2c46ab2522f366d06df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstPose: {fileID: 0}
+  MiddlePose: {fileID: 0}
+  SecondPose: {fileID: 0}
+--- !u!114 &7652616197112150034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323799802462926341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7403a5b5c9b88c14eab1b963f022b3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charAnim: {fileID: 1323799802462926343}
 --- !u!1 &1323799802511395273
 GameObject:
   m_ObjectHideFlags: 0

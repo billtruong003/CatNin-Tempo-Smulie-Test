@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BrickCollapse : MonoBehaviour
 {
+    [SerializeField] private Animator platformAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,12 @@ public class BrickCollapse : MonoBehaviour
     void Update()
     {
         
+    }
+    private void Collapse()
+    {
+        if (transform.position.y < -5)
+        {
+            platformAnim.SetTrigger("Collapse");
+        }
     }
 }

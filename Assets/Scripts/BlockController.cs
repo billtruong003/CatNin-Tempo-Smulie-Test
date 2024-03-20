@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
@@ -6,11 +6,35 @@ using NaughtyAttributes;
 public class BlockController : MonoBehaviour
 {
     [SerializeField] private Animator blockAnim;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private BlockFloating blockFloat;
+    public void Init()
     {
-
+        blockFloat.SetStartPose();
+        gameObject.SetActive(true);
+        
     }
+
+    public void BlockReset()
+    {
+        BackToNormal();
+    }
+
+    public void RightBlock()
+    {
+        blockFloat.Right = true;
+        blockFloat.SetPivotPose(2f);
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        transform.localPosition = new Vector3(blockFloat.PivotPose, 0, 0);
+    }
+
+    public void LeftBlock()
+    {
+        blockFloat.Right = false;
+        blockFloat.SetPivotPose(-2f);
+        transform.eulerAngles = new Vector3(0, 180, 0);
+        transform.localPosition = new Vector3(blockFloat.PivotPose, 0, 0);
+    }
+
     [Button]
     private void GoodActive()
     {
@@ -34,4 +58,30 @@ public class BlockController : MonoBehaviour
     {
         blockAnim.SetTrigger("Idle");
     }
+    void OnTriggerEnter2D(Collider2D collide)
+    {
+        if (collide.gameObject.CompareTag("Shuriken"))
+        {
+            int randNum = Random.Range(0, 3);
+            TriggerAnim(randNum);
+            SoundManager.Instance.MashWood();
+            Debug.Log("CollideShuriken");
+        }
+    }
+    private void TriggerAnim(int randInt)
+    {
+        if (randInt == 0)
+        {
+            GoodActive();
+        }
+        else if (randInt == 1)
+        {
+            NiceActive();
+        }
+        else
+        {
+            PerfectActive();
+        }
+    }    
+
 }

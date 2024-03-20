@@ -5,28 +5,33 @@ using UnityEngine;
 
 public class PlatformBuild : MonoBehaviour
 {
-
+    [SerializeField] private int platformNum;
     [SerializeField] private List<Sprite> platformSprites;
     [SerializeField] private GameObject Brick;
     [SerializeField] private GameObject SeparateBlock;
     [SerializeField] private GameObject ContainerBlock;
+    [SerializeField] private List<GameObject> standingBlock;
     private float spacing = 0.7f;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    public void ActivePlatform(int numBlockCreate)
+    {
+        DeactivePlatform();
+        for (int i = 0; i < numBlockCreate; i++)
+        {
+            standingBlock[i].SetActive(true);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void DeactivePlatform()
     {
-
+        for (int i = 0;i < standingBlock.Count;i++)
+        {
+            standingBlock[i].SetActive(false);
+        }
     }
     [Button]
     private void BuildPlatform()
     {
-
-        Init(Random.Range(4, 10));
+        Init(platformNum);
     }
     private void Init(int numBrick)
     {
@@ -41,6 +46,7 @@ public class PlatformBuild : MonoBehaviour
             SpriteRenderer blockSprite = newBlock.GetComponent<SpriteRenderer>();
             blockSprite.sprite = RandomSprite();
             blockSprite.sortingOrder = counting;
+            standingBlock.Add(newBlock);
         }
     }
     private Sprite RandomSprite()
@@ -48,4 +54,14 @@ public class PlatformBuild : MonoBehaviour
         int randNum = Random.Range(0, platformSprites.Count);
         return platformSprites[randNum];
     }
+    [Button]
+    private void ClearPlatform()
+    {
+        for (int i = 0; i < standingBlock.Count; i++)
+        {
+            DestroyImmediate(standingBlock[i].gameObject);
+        }
+        standingBlock.Clear();
+    }
+        
 }
