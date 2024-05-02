@@ -11,7 +11,7 @@ public class SceneLoad : MonoBehaviour
 
     private void Start()
     {
-        QualitySettings.vSyncCount = 0; 
+        QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = targetFrameRate;
     }
     private void Awake()
@@ -29,10 +29,27 @@ public class SceneLoad : MonoBehaviour
     public void LoadMenuScene()
     {
         SceneManager.LoadScene("MenuScene");
+        Time.timeScale = 1.0f;
+        SoundManager.Instance.StopAllAudio();
+    }
+    public void LoadTutoScene()
+    {
+        SceneManager.LoadScene("TutoScene");
+        Time.timeScale = 1.0f;
         SoundManager.Instance.StopAllAudio();
     }
     public void LoadGameplayScene()
     {
         SceneManager.LoadScene("GamePlayScene");
     }
+    public void LoadPracticeScene()
+    {
+        SceneManager.LoadScene("PracticeScene");
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+    }
+
 }

@@ -13,11 +13,11 @@ public class ScrollManager : MonoBehaviour
 
     void Update()
     {
-        ScrollRenderer(bgTop, 0.5f);
-        ScrollRenderer(bgMiddle, 0.1f);
-        ScrollRenderer(bgBot, 0.02f);
-        ScrollRenderer(bushLeft, 0.5f);
-        ScrollRenderer(bushRight, -0.5f);
+        ScrollRenderer(bgTop, 0.7f);
+        ScrollRenderer(bgMiddle, 0.14f);
+        ScrollRenderer(bgBot, 0.0275f);
+        ScrollRenderer(bushLeft, 0.7f);
+        ScrollRenderer(bushRight, -0.7f);
     }
     private void ScrollRenderer(Renderer bgRender, float scrollSpeed)
     {

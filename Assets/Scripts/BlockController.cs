@@ -7,24 +7,29 @@ public class BlockController : MonoBehaviour
 {
     [SerializeField] private Animator blockAnim;
     [SerializeField] private BlockFloating blockFloat;
+    [SerializeField] private WordController wordController;
     public void Init()
     {
         blockFloat.SetStartPose();
         gameObject.SetActive(true);
-        
+        InitWord();
     }
 
     public void BlockReset()
     {
         BackToNormal();
     }
-
+    public void InitWord()
+    {
+        wordController.WordGen();
+    }
     public void RightBlock()
     {
         blockFloat.Right = true;
         blockFloat.SetPivotPose(2f);
         transform.eulerAngles = new Vector3(0, 0, 0);
         transform.localPosition = new Vector3(blockFloat.PivotPose, 0, 0);
+        wordController.RightTrigger();
     }
 
     public void LeftBlock()
@@ -33,6 +38,7 @@ public class BlockController : MonoBehaviour
         blockFloat.SetPivotPose(-2f);
         transform.eulerAngles = new Vector3(0, 180, 0);
         transform.localPosition = new Vector3(blockFloat.PivotPose, 0, 0);
+        wordController.LeftTrigger();
     }
 
     [Button]

@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestParticleSystem.unity
     guid: e2add7ffcf1e46648959428a620536da
+  - enabled: 1
+    path: Assets/Scenes/PracticeScene.unity
+    guid: b1e0505a8e1fdb147831e1c6a6f1b4be
+  - enabled: 1
+    path: Assets/Scenes/TutoScene.unity
+    guid: 81bc33e8e2a7f904f859d1858e9cec4f
   m_configObjects: {}

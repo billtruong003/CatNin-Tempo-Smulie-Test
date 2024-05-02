@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KunaiThrow : MonoBehaviour
 {
-    [SerializeField] private float throwSpeed = 10f;
+    [SerializeField] private float throwSpeed = 30f;
     public Vector3 characterPosition;
     public Transform target;
     // Start is called before the first frame update

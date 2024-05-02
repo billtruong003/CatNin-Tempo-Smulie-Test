@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class LoadingScene : MonoBehaviour
 {
-
+    private void Awake()
+    {
+        //Screen.SetResolution(1080,2248, true);
+    }
     // Start is called before the first frame update
     void Start()
     {
+        
         StartCoroutine(Cor_LoadingScene());
     }
 
